@@ -1,0 +1,19 @@
+<h1>Todo List</h1>
+
+<ul>
+  <% @todos.each do |todo| %>
+    <li>
+      <div style="float: left; width: auto;">
+        <%= todo.description %>
+      </div>
+      <%= button_to "X", todo, :data => {:confirm => "Are you sure?"}, method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= form_with model:@todo do |form| %>
+    <%= form.text_field :description %>
+    <%= form.submit "Add Todo" %>
+  <% end %>
+</div>
